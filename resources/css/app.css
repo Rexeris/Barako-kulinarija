@@ -1,3 +1,50 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ===== Barako Kulinarija: Dark + Pink Theme (global override) ===== */
+:root{
+    color-scheme: dark;
+  }
+  
+  body{
+    background: #030712; /* gray-950 */
+    color: #f9fafb;      /* gray-50 */
+  }
+  
+  /* “white cards” -> dark cards */
+  .bg-white{ background-color:#111827 !important; }          /* gray-900 */
+  .text-gray-900{ color:#f9fafb !important; }
+  .text-gray-800{ color:#f3f4f6 !important; }
+  .text-gray-700{ color:#e5e7eb !important; }
+  .text-gray-600, .text-gray-500{ color:#d1d5db !important; }
+  .border-gray-100, .border-gray-200{ border-color:#1f2937 !important; } /* gray-800 */
+  .bg-gray-100{ background-color:#030712 !important; }
+  .bg-gray-50{ background-color:#0b1220 !important; }
+  
+  /* Links / accents */
+  a{ color:#f472b6; }                 /* pink-400 */
+  a:hover{ color:#fb7185; }           /* rose-400 */
+  
+  /* Inputs */
+  input, textarea, select{
+    background:#111827 !important;
+    color:#f9fafb !important;
+    border-color:#374151 !important;  /* gray-700 */
+  }
+  input::placeholder, textarea::placeholder{
+    color:#9ca3af !important;
+  }
+  
+  /* Focus ring (pink) */
+  *:focus{
+    outline: none;
+  }
+  :focus-visible{
+    box-shadow: 0 0 0 3px rgba(236,72,153,.35) !important; /* pink-500 */
+  }
+  
+  /* Buttons base */
+  button{
+    border-color:#374151 !important;
+  }
