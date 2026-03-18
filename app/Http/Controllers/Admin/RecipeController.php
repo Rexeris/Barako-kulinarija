@@ -39,7 +39,7 @@ class RecipeController extends Controller
 
             // video:
             'video_url' => ['nullable', 'string', 'max:2048'],
-            'video_file' => ['nullable', 'file', 'mimetypes:video/mp4,video/webm,video/quicktime', 'max:51200'], // 50MB
+            'video_file' => ['nullable', 'file', 'mimetypes:video/mp4,video/webm,video/quicktime', 'max:512000'], // 50MB
         ]);
 
         $data['slug'] = Str::slug($data['title']);
@@ -80,7 +80,7 @@ class RecipeController extends Controller
             'price_level' => ['nullable', 'string', 'max:10'],
 
             'video_url' => ['nullable', 'string', 'max:2048'],
-            'video_file' => ['nullable', 'file', 'mimetypes:video/mp4,video/webm,video/quicktime', 'max:51200'],
+            'video_file' => ['nullable', 'file', 'mimetypes:video/mp4,video/webm,video/quicktime', 'max:512000'],
             'remove_video' => ['nullable', 'boolean'],
         ]);
 
