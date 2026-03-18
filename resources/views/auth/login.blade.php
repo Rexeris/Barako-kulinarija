@@ -30,8 +30,8 @@
                 </a>
             @endif
 
-            <x-primary-button class="ms-3">
-                Prisijungti
+            <x-primary-button class="ms-3 !text-white !bg-indigo-600 hover:!bg-indigo-500">
+                {{ __('Prisijungti') }}
             </x-primary-button>
         </div>
     </form>
