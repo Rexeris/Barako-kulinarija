@@ -26,6 +26,7 @@ class RecipeController extends Controller
 
     public function store(Request $request)
     {
+        
         $data = $request->validate([
             'category_id' => ['nullable', 'exists:categories,id'],
             'title' => ['required', 'string', 'max:255'],
@@ -39,7 +40,8 @@ class RecipeController extends Controller
 
             // video:
             'video_url' => ['nullable', 'string', 'max:2048'],
-            'video_file' => ['nullable', 'file', 'mimetypes:video/mp4,video/webm,video/quicktime', 'max:512000'], // 50MB
+            'video_file' => ['nullable', 'file', 'mimetypes:video/mp4,video/webm,video/quicktime', 'max:1048576'], // 1GB
+            
         ]);
 
         $data['slug'] = Str::slug($data['title']);
@@ -80,7 +82,7 @@ class RecipeController extends Controller
             'price_level' => ['nullable', 'string', 'max:10'],
 
             'video_url' => ['nullable', 'string', 'max:2048'],
-            'video_file' => ['nullable', 'file', 'mimetypes:video/mp4,video/webm,video/quicktime', 'max:512000'],
+            'video_file' => ['nullable', 'file', 'mimetypes:video/mp4,video/webm,video/quicktime', 'max:1048576'],
             'remove_video' => ['nullable', 'boolean'],
         ]);
 
@@ -129,4 +131,5 @@ class RecipeController extends Controller
     {
         return redirect()->route('admin.recipes.edit', $recipe);
     }
+    
 }

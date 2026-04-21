@@ -3,18 +3,25 @@
         <div class="flex justify-between h-16">
             <div class="flex flex-1">
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('recipes.index') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-pink-500" />
+                    <a href="{{ route('home') }}">
+                        <x-application-logo class="block h-20 w-auto fill-current text-pink-500" />
                     </a>
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
+                        Pagrindinis
+                    </x-nav-link>
                     <x-nav-link :href="route('recipes.index')" :active="request()->routeIs('recipes.*')">
                         Receptai
                     </x-nav-link>
                 
                     <x-nav-link :href="route('blog.index')" :active="request()->routeIs('blog.*')">
                         Blog
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('about')" :active="request()->routeIs('about')">
+                        Apie mus
                     </x-nav-link>
                 
                     @auth

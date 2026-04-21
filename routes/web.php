@@ -5,14 +5,14 @@ use App\Http\Controllers\RecipeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\RecipeController as AdminRecipeController;
 use App\Http\Controllers\BlogPostController;
+use App\Http\Controllers\HomeController;
 
+
+Route::get('/', HomeController::class)->name('home');
+Route::view('/apie', 'about')->name('about');
 
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
     Route::resource('recipes', AdminRecipeController::class);
-});
-
-Route::get('/', function () {
-    return view('welcome');
 });
 
 Route::get('/dashboard', function () {
@@ -33,7 +33,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/my-blog/{blogPost}', [BlogPostController::class, 'destroy'])->name('blog.destroy');
 });
 
-Route::get('/', fn () => redirect()->route('recipes.index'));
 Route::get('/recipes', [RecipeController::class, 'index'])->name('recipes.index');
 Route::get('/recipes/{recipe:slug}', [RecipeController::class, 'show'])->name('recipes.show');
 require __DIR__.'/auth.php';
